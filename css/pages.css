@@ -2,27 +2,101 @@ body, html {
     margin: 0%;
     padding: 0%;
     height: 100%;
-    display: flex;
-    /* justify-content: right; */
-    align-items: center;
     background-color: black;
-    overflow-x: auto;
+}
+
+.scroll-container {
+    width: 100%;
+    overflow-x: scroll;
     overflow-y: hidden;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+}
+
+.scroll-row {
+    display: flex;
+    align-items: center;
+    height: auto;
+    position: relative;
+}
+
+.video-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 5px;
+    padding: 10px;
+}
+
+.video-container video {
+    width: 600px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.hover-video:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+}
+
+.hover-text {
+    font-size: 14px;
+    color: white;
+    opacity: 0.8;
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.video-container:hover .hover-text {
+    display: block;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.content.left {
+    justify-content: left;
+}
+
+.content.right {
+    justify-content: right;
 }
 
 .gif-row {
     display: flex;
     justify-content: flex-end;
     height: 50px;
+    overflow-x: auto;
 }
 
 .gif-row img {
     height: 50px;
     width: auto;
+    flex-shrink: 0;
 }
 
 h1 {
     color: white;
     display: flex;
     text-align: left;
-  }
+    margin-bottom: 10px;
+}
+
+#noid:hover + .noid-hover-text {
+    display: block;
+    right: 10px;
+}
