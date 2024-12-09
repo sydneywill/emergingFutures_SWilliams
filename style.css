@@ -5,107 +5,63 @@
 }
 
 body {
-    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    font-family: sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: black;
 }
 
-/* Book */
-.book {
+.video-container {
     position: relative;
-    width: 350px;
-    height: 500px;
-    transition: transform 0.5s;
+    width: 40%;
+    max-width: 800px;
+    aspect-ratio: 16/9;
+    margin: 10px;
 }
 
-.paper {
-    position: absolute;
+.video-container:nth-child(2) {
+    margin-top: 1px; /* offset between containers */
+}
+
+video {
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    perspective: 1500px;
-
+    object-fit: cover;
 }
 
-.front,
-.back {
-    background-color: white;
-    position: absolute;
+.video-container video {
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    transform-origin: left;
-    transition: transform 0.5s;
-}
-
-.front {
+    object-fit: cover;
     z-index: 1;
-    backface-visibility: hidden;
-    border-left: 3px solid black;
+    clip-path: inset(0 0 9% 0); /* cropping from bottom */
 }
 
-.back {
-    z-index: 0;
+
+
+.video-container .hover-text {
+    position: absolute;
+    bottom: 10px; /* Adjust to position text where you'd like */
+    right: 10px;
+    color: #5a5a5a;
+    opacity: .8;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 5px;
+    display: none; /* Hide text initially */
+    z-index: 2; /* Ensure text is above the video */
 }
 
-.front-content,
-.back-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.video-container:hover video {
+    visibility: visible; /* Show the video when hovering */
 }
 
-.back-content {
-    transform: rotateY(180deg)
-}
-
-/* Paper flip effect */
-.flipped .front,
-.flipped .back {
-    transform: rotateY(-180deg);
-}
-
-/* Controller Buttons */
-button {
-    background-color: lightblue;
-    border: 2px solid gray;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-button:focus {
-    outline: none;
-}
-
-button:hover i {
-    color: #636363;
-}
-
-i {
-    font-size: 50px;
-    color: gray;
-}
-
-/* Paper stack order */
-#p1 {
-    z-index: 3;
-}
-
-#p2 {
-    z-index: 2;
-}
-
-#p3 {
-    z-index: 1;
+.video-container:hover .hover-text {
+    display: block; /* Show the text when hovering */
 }
