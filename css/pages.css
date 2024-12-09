@@ -1,0 +1,28 @@
+body, html {
+    margin: 0%;
+    padding: 0%;
+    height: 100%;
+    display: flex;
+    /* justify-content: right; */
+    align-items: center;
+    background-color: black;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.gif-row {
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+}
+
+.gif-row img {
+    height: 50px;
+    width: auto;
+}
+
+h1 {
+    color: white;
+    display: flex;
+    text-align: left;
+  }
